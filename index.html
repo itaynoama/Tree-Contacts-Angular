@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-csp="">
+<head>
+    <meta charset="UTF-8">
+    <title>Tree of Contacts</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="js/appController.js"></script>
+    <link rel="stylesheet" href="includes/style.css">
+</head>
+<body ng-controller="myCtrl">
+    <div class="container-fluid">
+        <h1>Contact Tree</h1>
+        <div class="row">
+          <div class="col-md-12">
+            <ul ng-repeat="node in nodesArr | filter : {isShow : true }" ng-click="select($index)" ng-class="{sel: $index == selected}">
+              <li ng-class="[selectIndentationClass(node)]">
+                <span ng-click="toggleDropdown(node)">{{node.name}}</span>
+              </li>
+            </ul>  
+          </div>
+        </div>
+    </div>
+</body>
+</html>
